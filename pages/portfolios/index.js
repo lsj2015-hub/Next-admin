@@ -12,7 +12,11 @@ function Item({ portfolio }) {
       <div className="flex w-16 justify-center">
         <img src={portfolio.thumbnail} alt="" className="max-w-16 max-h-16" />
       </div>
-      <div className="flex-1 mx-2">{portfolio.subject}</div>
+      <div className="flex-1 mx-2">
+        <Link href={`/portfolios/${portfolio.id}`} passHref>
+          <a>{portfolio.subject}</a>
+        </Link>
+      </div>
       <div>
         {DateTime.fromSeconds(portfolio.created_at.seconds).toFormat(
           'yyyy-LL-dd'
